@@ -1,12 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Reflection.Metadata.Ecma335;
+using WindowsFormsExemplos.Modelos;
+using WindowsFormsExemplos.Repositorios;
 
 namespace WindowsFormsExemplos.Servicos
 {
     internal class ClienteServico
     {
+        private ClienteRepositorio repositorio;
+
+        public ClienteServico()
+        {
+            repositorio = new ClienteRepositorio();
+        }
+
+        public void Cadastrar(Cliente cliente)
+        {
+            repositorio.Cadastrar(cliente);
+        }
+
+        public List<Cliente> ObterTodos()
+        {
+            var clientes = repositorio.ObterTodos();
+            return clientes;
+        }
+
+
+
+
     }
 }
